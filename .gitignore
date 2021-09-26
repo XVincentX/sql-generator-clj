@@ -1,3 +1,5 @@
 .cpcache
 .calva
 .nrepl-port
+.clj-kondo
+sqlite.db
