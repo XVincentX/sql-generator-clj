@@ -12,11 +12,13 @@
 
 (defn logical-infix-operator
   [[operator & args] fields]
-  (->> (map #(str "(" (where-clause* % fields) ") " (.toUpperCase (name operator))) args)
-       (join " ")
-       (drop-last (count (name operator)))
-       (join "")
-       (.trim)))
+  (let [operator-name (name operator)]
+    (->> args
+         (map #(str "(" (where-clause* % fields) ") " (.toUpperCase operator-name)))
+         (join " ")
+         (drop-last (count operator-name))
+         (join "")
+         (.trim))))
 
 (defn logical-prefix-operator [[operator & args] fields]
   (str (.toUpperCase (name operator)) " (" (where-clause* (first args) fields) ")"))
