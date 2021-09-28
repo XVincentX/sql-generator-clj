@@ -17,13 +17,13 @@
 (defmethod where-clause :default [{:keys [where] :as spec} fields]
   (.trim (str
           (if (some? where) (str "WHERE " (where-clause* where fields) " ") " ")
-          (top-clause spec)))
+          (top-clause spec))))
 
-  (defn generate-sql "Generates a full SQL Statement for the provided arguments
+(defn generate-sql "Generates a full SQL Statement for the provided arguments
                     dialect: :sqlserver :mysql :postgres
                     fields: map where key is a number and then a value
                     where: map with :limit and :where clauses"
-    [dialect fields {:keys [limit where]}]
-    (let [t (select-clause {:dialect dialect :limit limit})
-          w (where-clause {:dialect dialect :where where :limit limit} fields)]
-      (str t w))))
+  [dialect fields {:keys [limit where]}]
+  (let [t (select-clause {:dialect dialect :limit limit})
+        w (where-clause {:dialect dialect :where where :limit limit} fields)]
+    (str t w)))
