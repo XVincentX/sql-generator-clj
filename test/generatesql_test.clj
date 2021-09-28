@@ -1,4 +1,4 @@
-(ns test.generatesql-test (:require [clojure.test :refer [deftest is]]
+(ns generatesql-test (:require [clojure.test :refer [deftest is]]
                                     [app.generate-sql :refer [generate-sql]]))
 
 (deftest generate-sql-fn

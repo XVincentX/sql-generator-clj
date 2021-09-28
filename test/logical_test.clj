@@ -1,4 +1,4 @@
-(ns test.logical-test (:require [clojure.test :refer [deftest is]]
+(ns logical-test (:require [clojure.test :refer [deftest is]]
                                 [app.logical :refer [logical-infix-operator logical-prefix-operator]]))
 
 (deftest logical-operator-fn

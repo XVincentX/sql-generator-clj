@@ -1,4 +1,4 @@
-(ns test.comparison-test (:require [clojure.test :refer [deftest is]]
+(ns comparison-test (:require [clojure.test :refer [deftest is]]
                                    [app.comparison :refer [comparison-operator resolve-arg quote-value]]))
 
 (deftest quote-value-fn
