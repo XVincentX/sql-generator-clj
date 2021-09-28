@@ -14,7 +14,7 @@
 
 (defmulti where-clause "Generates a SQL statement for a where clause" (fn [spec _fields] (:dialect spec)))
 (defmethod where-clause :sqlserver [{:keys [where]} fields] (when where (str "WHERE " (where-clause* where fields))))
-(defmethod where-clause :default [{:keys [where]} :as spec fields]
+(defmethod where-clause :default [{:keys [where] :as spec} fields]
   (.trim (str
           (if (some? where) (str "WHERE " (where-clause* where fields) " ") " ")
           (top-clause spec)))
